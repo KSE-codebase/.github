@@ -16,6 +16,7 @@ This is the index of automations owned by the **President Office** unit of KSE, 
 | [`po-sheets-to-notion`](../po-sheets-to-notion) | Schema-driven Google Sheets → Notion | Python + GitHub Actions |
 | [`po-drive-inquiries-to-notion`](../po-drive-inquiries-to-notion) | Drive inquiry files → Notion Requests dashboard | Python + GitHub Actions |
 | [`po-gmail-inquiries-to-notion`](../po-gmail-inquiries-to-notion) | Gmail inquiries → Notion Requests dashboard | Python + GitHub Actions |
+| [`po-comms-analytics`](../po-comms-analytics) | Comms efficiency: match published X/FB posts to Notion authors + engagement | Python (pandas/sklearn) |
 | [`po-sebastian-transcriber`](../po-sebastian-transcriber) | Telegram bot: audio/video transcription, YouTube subtitles, file metadata/OSINT | Python (Telegram bot) |
 
 The last five are the split of the original monorepo `asobkiv/kse-notion-sync` — one repo per scraper, each with its own README, workflow, and `.env.example`.
