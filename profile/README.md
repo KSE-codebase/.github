@@ -6,16 +6,16 @@ We're moving toward being **AI-integrated, AI-native, and data-driven**. This or
 
 ## Units
 
-Work is grouped by unit. Each unit is a **Team** here, and its repos share a short name prefix.
+Work is grouped by unit. Each unit is a **Team** here — membership in a team grants access to that unit's repositories. Browse them at [Teams](https://github.com/orgs/KSE-codebase/teams).
 
-| Unit | Prefix | Team |
-|---|---|---|
-| President Office | `po-` | `president-office` |
-| Business School | `bs-` | `business-school` |
-| University | `uni-` | `university` |
-| ProfTech | `pt-` | `proftech` |
-| KSE Institute | `kic-` | `kse-institute` |
-| Charity Fund | `cf-` | `charity-fund` |
+| Unit | Team |
+|---|---|
+| President Office | `president-office` |
+| Business School | `business-school` |
+| University | `university` |
+| ProfTech | `proftech` |
+| KSE Institute | `kse-institute` |
+| Charity Fund | `charity-fund` |
 
 ## How it works
 
@@ -26,5 +26,5 @@ Work is grouped by unit. Each unit is a **Team** here, and its repos share a sho
 
 ## Start here
 
-- 🧭 **[GUIDE.md](https://github.com/KSE-codebase/.github/blob/main/GUIDE.md)** — покрокова інструкція для людей і агентів: від «відкрити термінал» до «залито в організацію», з копі-пейст-командами. Почни звідси, якщо не працював із Git/GitHub.
-- 📐 **[STRUCTURE.md](https://github.com/KSE-codebase/.github/blob/main/STRUCTURE.md)** — конвенції, юніти, доступи, як додати репо чи юніт.
+- 🧭 **[GUIDE.md](https://github.com/KSE-codebase/.github/blob/main/GUIDE.md)** — step-by-step walkthrough for people and AI agents: from "open a terminal" to "pushed to the organization", with copy-paste commands. Start here if you've never used Git/GitHub. *(Written in Ukrainian for KSE staff.)*
+- 📐 **[STRUCTURE.md](https://github.com/KSE-codebase/.github/blob/main/STRUCTURE.md)** — conventions, units, access, and how to add a repo or a unit.

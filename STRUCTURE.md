@@ -4,29 +4,28 @@ How the shared code space is organized. Read this before creating a repo or addi
 
 ## The model
 
-GitHub has **no nested folders of repositories**. A "unit" is therefore expressed with two mechanisms that together reproduce the "org → unit-folder → project" mental model:
-
-1. **A GitHub Team per unit** — controls who can see and push (access & ownership).
-2. **A repo-name prefix per unit** — groups repos visually in the org's repo list and makes ownership obvious at a glance.
+GitHub has **no nested folders of repositories**. A "unit" is therefore expressed with a **GitHub Team** — the single source of truth for which unit a repo belongs to and who can access it. Adding a person to a team grants them access to that unit's repositories; a repo belongs to a unit by being assigned to that unit's team.
 
 Each **automation / project is its own repository** ("micro-repo"), owned by the relevant person, who has full rights to change it. Repos can be public within the org, private, or restricted per project.
 
 ```
 KSE-codebase (organization)
-├─ Team: president-office   → repos prefixed  po-
-├─ Team: business-school    → repos prefixed  bs-
-├─ Team: university         → repos prefixed  uni-
-├─ Team: proftech           → repos prefixed  pt-
-├─ Team: kse-institute      → repos prefixed  kic-
-└─ Team: charity-fund       → repos prefixed  cf-
+├─ Team: president-office   → this unit's repos
+├─ Team: business-school
+├─ Team: university
+├─ Team: proftech
+├─ Team: kse-institute
+└─ Team: charity-fund
 ```
 
-(Prefixes are a proposal — adjust to taste, but keep them short and stable.)
+Browse units and their repos at **[Teams](https://github.com/orgs/KSE-codebase/teams)**.
 
 ## Naming convention
 
-`<unit-prefix>-<what-it-does>`, lowercase, hyphenated, source→destination when it's a pipeline.
-Examples: `po-moodle-to-notion`, `po-comms-scrum-bot`, `bs-crm-to-sheets`.
+`<what-it-does>`, lowercase, hyphenated, source→destination when it's a pipeline. **No unit prefix** — the team says which unit it belongs to.
+Examples: `moodle-to-notion`, `comms-scrum-bot`, `crm-to-sheets`.
+
+> If two units ever need a repo with the same generic name, disambiguate then (e.g. a short suffix) — don't pre-emptively prefix everything.
 
 ## What every repo should have
 
@@ -48,11 +47,10 @@ The goal "only people with our domain can access" is an **org-level, paid-plan**
 
 ## Adding a new unit
 1. Create a **Team** in the org.
-2. Agree a short **prefix**.
-3. Add an index README (like `president-office/README.md`) listing the unit's repos.
+2. Add an index page (like `units/president-office.md`) listing the unit's repos.
 
 ## Adding a new automation
-1. Create a repo `<prefix>-<name>` in `KSE-codebase`.
+1. Create a repo `<name>` in `KSE-codebase`.
 2. Assign it to the unit's Team; set the maintainer as admin.
 3. Add README + `.env.example`, put secrets in GitHub Secrets, enable the workflow.
-4. Add a row to the unit's index README.
+4. Add a row to the unit's index page.

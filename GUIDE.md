@@ -11,7 +11,7 @@
 - **Git** — програма, що зберігає історію змін у папці (локально, у тебе на комп'ютері).
 - **GitHub** — сайт, куди ці папки (репозиторії) заливаються, щоб ділитися й зберігати в хмарі.
 - **Організація `KSE-codebase`** — спільний простір KSE. Усередині — **репозиторії**, по одному на кожну автоматизацію/проєкт.
-- **Юніт** (President Office, Business School…) = **Team** + префікс у назві репо (`po-`, `bs-`…). Папок усередині GitHub немає — групуємо префіксом і командами.
+- **Юніт** (President Office, Business School…) = **Team** (група людей + доступ до її репозиторіїв). Папок усередині GitHub немає — групуємо командами, без префіксів у назвах.
 - **Ти працюєш так:** копіюєш репо до себе (`clone`) → міняєш файли → зберігаєш зміни (`commit`) → відправляєш назад на GitHub (`push`). Або: маєш готову папку → створюєш з неї нове репо в організації одним рухом.
 
 Повні правила іменування й доступів — у [`STRUCTURE.md`](STRUCTURE.md).
@@ -97,10 +97,10 @@ gh auth status
 mkdir -p ~/kse && cd ~/kse
 
 # клонувати конкретне репо (заміни назву на потрібну)
-gh repo clone KSE-codebase/po-moodle-to-notion
+gh repo clone KSE-codebase/moodle-to-notion
 
 # зайти в нього
-cd po-moodle-to-notion
+cd moodle-to-notion
 ```
 
 Побачити список усіх репо організації:
@@ -149,9 +149,9 @@ git add -A
 git commit -m "Initial import"
 
 # 3) створити репо в організації і одразу залити
-#    назва = префікс юніту + що це (напр. po-my-automation)
+#    назва = коротко що це, без префікса (напр. my-automation); юніт задає Team
 #    --private = закрите; --public = відкрите
-gh repo create KSE-codebase/po-my-automation --private --source=. --push
+gh repo create KSE-codebase/my-automation --private --source=. --push
 ```
 
 Готово — репо створене й залите. Посилання термінал виведе сам.
@@ -179,7 +179,7 @@ claude          # запустити Claude Code   (або:  codex)
 Далі просто напиши агенту завдання людською мовою. Готові промти для копіювання:
 
 **Залити поточну папку новим репо:**
-> «Залий цю папку новим **приватним** репозиторієм у GitHub-організацію **KSE-codebase** з назвою **po-НАЗВА**. Спочатку створи короткий README українською з описом що це і як користуватися, додай `.gitignore` для секретів, потім `git init`, commit і `gh repo create ... --source=. --push`. Якщо в папці є `.github/workflows`, а токен без scope `workflow` — поклади workflow тимчасово в `workflow/` і напиши мені, що треба зробити.»
+> «Залий цю папку новим **приватним** репозиторієм у GitHub-організацію **KSE-codebase** з назвою **НАЗВА** (без префікса). Спочатку створи короткий README українською з описом що це і як користуватися, додай `.gitignore` для секретів, потім `git init`, commit і `gh repo create ... --source=. --push`. Якщо в папці є `.github/workflows`, а токен без scope `workflow` — поклади workflow тимчасово в `workflow/` і напиши мені, що треба зробити.»
 
 **Оновити наявне репо:**
 > «Внеси такі зміни: … Потім зроби `git add -A`, `commit` зі змістовним описом і `git push`.»
@@ -214,7 +214,7 @@ claude          # запустити Claude Code   (або:  codex)
 | `Authentication failed` | `gh auth login` заново (розділ 3). |
 | `updates were rejected ... fetch first` | Хтось залив зміни раніше. Зроби `git pull`, потім `git push`. |
 | Випадково закомітив пароль/токен | Негайно **відклич** цей токен у сервісі, заміни на новий, і напиши адміну — історію треба чистити. |
-| Не знаю назву юніт-префікса | Дивись [`STRUCTURE.md`](STRUCTURE.md). |
+| Не знаю, до якого юніту віднести репо | Це визначає Team, а не назва. Дивись [`STRUCTURE.md`](STRUCTURE.md). |
 
 ---
 
@@ -223,7 +223,7 @@ claude          # запустити Claude Code   (або:  codex)
 Стислий контракт для AI-агента, який заливає проєкт у цю організацію:
 
 - **Організація:** `KSE-codebase`. Одне репо = одна автоматизація/проєкт.
-- **Назва репо:** `<префікс-юніту>-<що-робить>`, lowercase, через дефіс (President Office = `po-`). Див. `STRUCTURE.md`.
+- **Назва репо:** `<що-робить>`, lowercase, через дефіс, **без префікса юніту** — приналежність до юніту задає Team. Після створення признач репо відповідній команді. Див. `STRUCTURE.md`.
 - **Дефолт видимості:** `--private`, якщо користувач явно не сказав `--public`.
 - **README обов'язковий:** що це, юзкейс, налаштування, секрети, як тестувати.
 - **Ніяких секретів у коді.** Додай `.gitignore` (`.env`, `*credentials*.json`, `token.json`). Значення — у GitHub Secrets або Apps Script Script Properties. Дай `.env.example` з плейсхолдерами.
@@ -235,5 +235,5 @@ claude          # запустити Claude Code   (або:  codex)
 git init -b main
 git add -A
 git commit -m "Initial import"
-gh repo create KSE-codebase/<prefix>-<name> --private --source=. --push
+gh repo create KSE-codebase/<name> --private --source=. --push
 ```
