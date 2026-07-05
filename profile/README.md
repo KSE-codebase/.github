@@ -24,4 +24,7 @@ Work is grouped by unit. Each unit is a **Team** here, and its repos share a sho
 - **No secrets in code** — GitHub Secrets or Apps Script Script Properties.
 - Every repo has a README you can follow end-to-end.
 
-New here? Read **[STRUCTURE.md](https://github.com/KSE-codebase/.github/blob/main/STRUCTURE.md)** for conventions and how to add a repo or a unit.
+## Start here
+
+- 🧭 **[GUIDE.md](https://github.com/KSE-codebase/.github/blob/main/GUIDE.md)** — покрокова інструкція для людей і агентів: від «відкрити термінал» до «залито в організацію», з копі-пейст-командами. Почни звідси, якщо не працював із Git/GitHub.
+- 📐 **[STRUCTURE.md](https://github.com/KSE-codebase/.github/blob/main/STRUCTURE.md)** — конвенції, юніти, доступи, як додати репо чи юніт.
